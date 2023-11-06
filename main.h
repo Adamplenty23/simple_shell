@@ -15,5 +15,13 @@
 #include <fcntl.h>
 
 #define BUF_SIZE 1024
+#define PROMPT "$ "
+
+/*Print Functions*/
+int _putchar(char a);
+void _printS(char *s);
+void dis_prompt_user(void);
+
+/*String helper function*/
 
 #endif
