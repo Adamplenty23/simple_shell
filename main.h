@@ -16,4 +16,6 @@
 
 #define BUF_SIZE 1024
 
+int _putchar(char a);
+
 #endif
