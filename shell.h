@@ -13,4 +13,6 @@
 #include <signal.h>
 #include <fcntl.h>
 
+#define BUF_SIZE 1024
+
 #endif
