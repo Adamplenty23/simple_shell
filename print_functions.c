@@ -18,7 +18,7 @@ int _putchar(char a)
 
 void _printS(char *s)
 {
-	write(STDOUT_FILENO, s, strlen(s));
+	write(STDOUT_FILENO, s, _strlen(s));
 }
 
 /**

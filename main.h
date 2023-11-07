@@ -23,7 +23,9 @@ void _printS(char *s);
 void dis_prompt_user(void);
 
 /*String helper function*/
-
-int _putchar(char a);
+int _strcmp(char *s1, char *s2);
+char *_strncpy(char *dest, char *src, int n);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
 
 #endif
