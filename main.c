@@ -30,7 +30,8 @@ int main(void)
 		i = 0;
 		while (token_read[i])
 		{
-			printf("args[%i] -> %s\n", i, token_read[i]);
+			_printS(token_read[i]);
+			_putchar('\n');
 			i++;
 		}
 	}
