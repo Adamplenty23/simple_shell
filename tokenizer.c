@@ -11,7 +11,7 @@ char **_token_gen(char *arg)
 	char **token, *arg_cp, *delim = " \t\n", *tok;
 	int str_count = 0, i;
 
-	arg_cp = strdup(arg);
+	arg_cp = _strdup(arg);
 	if (arg_cp == NULL)
 		return (NULL);
 
