@@ -3,3 +3,5 @@
 test
 test.c
 shell.c
+_test/
+sh

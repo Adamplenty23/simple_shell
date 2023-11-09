@@ -8,33 +8,33 @@
 
 char **_token_gen(char *arg)
 {
-	char **token, *arg_cp, *tok, *toks;
-	int str_count = 0, i = 0;
+	char **token, *arg_cp, *delim = " \t\n", *tok;
+	int str_count = 0, i;
 
-	arg_cp = _strdup(arg);
+	arg_cp = strdup(arg);
 	if (arg_cp == NULL)
 		return (NULL);
 
-	tok = strtok(arg, DELIM);
-	while (tok != NULL)
-	{
+	tok = strtok(arg_cp, delim);
+	while (tok)
+	{ 
 		str_count++;
-		tok = strtok(NULL, DELIM);
+		tok = strtok(NULL, delim);
 	}
 	str_count++;
-
 	token = malloc(sizeof(char *) * str_count);
 	if (token == NULL)
 	{
 		free(arg_cp);
 		return (NULL);
 	}
-	toks = strtok(arg_cp, DELIM);
-	token[0] = toks;
-	for (i = 1; toks != NULL; i++)
+	tok = strtok(arg, delim);
+	for (i = 0; tok != NULL; i++)
 	{
-		toks = strtok(NULL, DELIM);
-		token[i] = toks;
+		token[i] = tok;
+		tok = strtok(NULL, delim);
 	}
+	token[i] = NULL;
+	free(arg_cp);
 	return (token);
 }
