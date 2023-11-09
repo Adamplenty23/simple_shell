@@ -12,7 +12,8 @@ int main(int ac, char **av)
 	char *buf;
 	size_t size;
 	ssize_t r_userline;
-	char *token_read;
+	char **token_read;
+	int i = 0;
 	(void)ac, (void)av;
 
 	while (1)
@@ -26,7 +27,13 @@ int main(int ac, char **av)
 			free(buf);
 			exit(EXIT_SUCCESS);
 		}
-//		_printS(r_userline);
+		token_read = _token_gen(buf);
+		while (token_read[i])
+		{
+			_printS(token_read[i]);
+			_putchar('\n');
+			i++;
+		}
 	}
 	return (0);
 }
