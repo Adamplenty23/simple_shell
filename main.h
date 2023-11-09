@@ -16,6 +16,7 @@
 
 #define BUF_SIZE 1024
 #define PROMPT "$ "
+#define DELIM " \t\n"
 
 /*Print Functions*/
 int _putchar(char a);
@@ -27,5 +28,11 @@ int _strcmp(char *s1, char *s2);
 char *_strncpy(char *dest, char *src, int n);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
+char *_strcat(char *dest, char *src);
+char *_strncat(char *dest, char *src, int n);
+int _atoi(char *s);
+char *_strdup(char *str);
+
+char **_token_gen(char *arg);
 
 #endif
