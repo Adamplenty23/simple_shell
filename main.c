@@ -4,7 +4,7 @@
  * main - Entry function for our shell
  * @ac: argument count
  * @av: argument vector
- * Return: 0 oon success
+ * Return: 0 on success, -1 on failure
  */
 
 int main(int ac, char **av)
@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	char *token_read;
 	(void)ac, (void)av;
 
-	while (1)
+	while (2)
 	{
 		dis_prompt_user();
 		buf = NULL;
