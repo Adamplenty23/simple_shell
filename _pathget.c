@@ -8,6 +8,7 @@
  *
  * Return: The specific path
  */
+
 char *_pathget(char *cmd_name, char *paths)
 {
 	int cmd_len, tok_len;
@@ -19,10 +20,10 @@ char *_pathget(char *cmd_name, char *paths)
 		return (NULL);
 
 	/* getting the length of the command so as to allocate memory space */
-	cmd_len = strlen(cmd_name);
+	cmd_len = _strlen(cmd_name);
 
 	/* duplicating the path before tokenizing */
-	cp_path = strdup(paths);
+	cp_path = _strdup(paths);
 	if (!cp_path)
 		return (NULL);
 
@@ -40,9 +41,9 @@ char *_pathget(char *cmd_name, char *paths)
 		}
 
 		/* copying and concatenation of strings */
-		strcpy(main_path, tok);
-		strcat(main_path, "/");
-		strcat(main_path, cmd_name);
+		_strcpy(main_path, tok);
+		_strcat(main_path, "/");
+		_strcat(main_path, cmd_name);
 
 		if (stat(main_path, &st) == 0)
 		{
@@ -61,4 +62,3 @@ char *_pathget(char *cmd_name, char *paths)
 
 	return (NULL);
 }
-
