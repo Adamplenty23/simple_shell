@@ -7,15 +7,14 @@
  * Return: 0 on success, -1 on failure
  */
 
-/*int main(int ac, char **av)*/
-int main(void)
+int main(int ac, char **av, char **env)
 {
-	char *buf = NULL;
+	char *buf = NULL, *all_paths, *main_path;
 	size_t size;
 	ssize_t r_userline;
 	char **token_read;
 	int i;
-/*	(void)ac, (void)av; */
+	(void)ac, (void)av;
 
 	while (2)
 	{
@@ -27,13 +26,13 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 		token_read = _token_gen(buf);
-		i = 0;
-		while (token_read[i])
+		all_paths = _getenvr("PATH",env);
+		main_path = _pathgei(arg[0], all_paths);
+		if (execve(main_path, token_read, env)
 		{
-			_printS(token_read[i]);
-			_putchar('\n');
-			i++;
+			perror(arg[0]);
+			exit(EXIT_FAILURE);
 		}
-	}
-	return (0);
+
+	return (0)
 }

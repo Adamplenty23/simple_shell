@@ -33,5 +33,7 @@ char *_strncat(char *dest, char *src, int n);
 int _atoi(char *s);
 char *_strdup(char *str);
 char **_token_gen(char *arg);
+char *_getenvr(char *var_name, char **envr);
+char *_pathget(char *cmd_name, char *all_paths)
 
 #endif
