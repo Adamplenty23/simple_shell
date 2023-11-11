@@ -1,4 +1,5 @@
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
  * _getenvr - a function that get the path of an env
@@ -22,3 +23,4 @@ char *_getenvr(char *var_name, char **env)
 	}
 	return (NULL);
 }
+

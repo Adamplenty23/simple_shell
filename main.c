@@ -25,7 +25,7 @@ int main(int ac, char **av, char **env)
 			exit(EXIT_SUCCESS);
 		}
 		token_read = _token_gen(buf);
-		/*all_paths = _getenvr("PATH", env);
+		all_paths = _getenvr("PATH", env);
 		main_path = _pathget(token_read[0], all_paths);
 		if (execve(main_path, token_read, env) == -1)
 		{
@@ -35,7 +35,7 @@ int main(int ac, char **av, char **env)
 
 		free(buf);
 		free(token_read);
-	}*/
+	}
 
 	return (0);
 }
