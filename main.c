@@ -31,7 +31,7 @@ int main(int ac, char **av, char **env)
 		{
 			perror(token_read[0]);
 			exit(EXIT_FAILURE);
-		}*/
+		}
 
 		free(buf);
 		free(token_read);
