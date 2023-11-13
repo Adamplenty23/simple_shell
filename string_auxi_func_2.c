@@ -16,7 +16,7 @@ int _isdigit(const char *c)
 	{
 		if (c[i] >= 48 && c[i] <= 57)
 		{
-		return (1);
+			return (1);
 		}
 		else
 		{
@@ -50,4 +50,24 @@ char *_itoa(int n)
 	rev_string(buf);
 
 	return (_strdup(buf));
+}
+/**
+ * _strncmp - a function that compares string up to index n
+ * @str1: first string to be compared
+ * @str2: second string
+ * @n: the index
+ * Return: 0 for success
+ */
+int _strncmp(const char *str1, const char *str2, size_t n)
+{
+	for (; i > 0; i--)
+	{
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		if (*str1 == '\0')
+			break;
+		str1++;
+		str2++;
+	}
+	return (0);
 }
