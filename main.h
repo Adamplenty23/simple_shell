@@ -41,7 +41,7 @@ void rev_string(char *s);
 int _isdigit(const char *c);
 char *_itoa(int n);
 int _strncmp(const char *str1, const char *str2, size_t i);
-char *_strtok(char *str, const char *delim);
+char *_strtok(char *str, char *delim);
 
 /*Handle Environment Funtions*/
 char *_getenvr(char *var_name, char **envr);

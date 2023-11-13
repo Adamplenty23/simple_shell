@@ -5,7 +5,7 @@
  * @delim: the seperators between array of strings
  * Return: a tokenized string
  */
-char *_strtok(char *str, const char *delim)
+char *_strtok(char *str, char *delim)
 {
 	static char *last_tok;
 	char *tokStart;
@@ -15,7 +15,7 @@ char *_strtok(char *str, const char *delim)
 
 	if (str)
 		last_tok = str;
-	while (*last_tok != '\0' && strchr(delim, *last_tok) != NULL)
+	while (*last_tok != '\0' && _strchr(delim, *last_tok) != NULL)
 		last_tok++;
 	if (*last_tok == '\0')
 	{
@@ -24,7 +24,7 @@ char *_strtok(char *str, const char *delim)
 	}
 
 	tokStart = last_tok;
-	while (*last_tok != '\0' && strchr(delim, *last_tok) == NULL)
+	while (*last_tok != '\0' && _strchr(delim, *last_tok) == NULL)
 		last_tok++;
 	if (*last_tok != '\0')
 	{
