@@ -52,13 +52,13 @@ char *_itoa(int n)
 	return (_strdup(buf));
 }
 /**
- * _strncmp - a function that compares string up to index n
+ * _strncmp - a function that compares string up to index i
  * @str1: first string to be compared
  * @str2: second string
- * @n: the index
+ * @i: the index
  * Return: 0 for success
  */
-int _strncmp(const char *str1, const char *str2, size_t n)
+int _strncmp(const char *str1, const char *str2, size_t i)
 {
 	for (; i > 0; i--)
 	{
