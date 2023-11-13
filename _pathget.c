@@ -18,7 +18,7 @@ char *_pathget(char *cmd_name, char *paths)
 	cp_path = _strdup(paths);
 	if (!cp_path)
 		return (NULL);
-	tok = strtok(cp_path, ":");
+	tok = _strtok(cp_path, ":");
 	while (tok)
 	{
 		tok_len = strlen(tok);
@@ -37,7 +37,7 @@ char *_pathget(char *cmd_name, char *paths)
 			return (main_path);
 		}
 		free(main_path);
-		tok = strtok(NULL, ":");
+		tok = _strtok(NULL, ":");
 	}
 	free(cp_path), cp_path = NULL;
 	if (stat(cmd_name, &st) == 0)

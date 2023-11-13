@@ -15,11 +15,11 @@ char **_token_gen(char *arg)
 	if (arg_cp == NULL)
 		return (NULL);
 
-	tok = strtok(arg_cp, delim);
+	tok = _strtok(arg_cp, delim);
 	while (tok)
 	{
 		str_count++;
-		tok = strtok(NULL, delim);
+		tok = _strtok(NULL, delim);
 	}
 	str_count++;
 	token = malloc(sizeof(char *) * str_count);
@@ -28,11 +28,11 @@ char **_token_gen(char *arg)
 		free(arg_cp);
 		return (NULL);
 	}
-	tok = strtok(arg, delim);
+	tok = _strtok(arg, delim);
 	for (i = 0; tok != NULL; i++)
 	{
 		token[i] = tok;
-		tok = strtok(NULL, delim);
+		tok = _strtok(NULL, delim);
 	}
 	token[i] = NULL;
 	free(arg_cp);
