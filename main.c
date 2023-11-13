@@ -4,6 +4,7 @@
  * main - Entry function for our shell
  * @ac: argument count
  * @av: argument vector
+ * @env: environment variable
  * Return: 0 on success, -1 on failure
  */
 int main(int ac, char **av, char **env)
@@ -11,30 +12,28 @@ int main(int ac, char **av, char **env)
 	char *buf = NULL, *all_paths, *main_path;
 	size_t size;
 	ssize_t r_userline;
-	char **token_read;
-	int i;
-	(void)ac, (void)av;
+	char **token_read = NULL;
+	int i, status = 0;
+	(void)ac;
 
 	while (1)
 	{
-		dis_prompt_user();
+		if (isatty(STDIN_FILENO) == 1)
+			dis_prompt_user();
+
 		r_userline = getline(&buf, &size, stdin);
 		if (r_userline == -1)
 		{
-			free(buf);
+			free(buf), buf = NULL;
 			exit(EXIT_SUCCESS);
 		}
-		token_read = _token_gen(buf);
-		all_paths = _getenvr("PATH", env);
-		main_path = _pathget(token_read[0], all_paths);
-		if (execve(main_path, token_read, env) == -1)
-		{
-			perror(token_read[0]);
-			exit(EXIT_FAILURE);
-		}
 
-		free(buf);
-		free(token_read);
+		token_read = _token_gen(buf);
+		if (!token_read)
+			continue;
+
+		status = _do_execute(token_read, av);
+
 	}
 
 	return (0);

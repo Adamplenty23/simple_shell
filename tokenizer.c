@@ -17,7 +17,7 @@ char **_token_gen(char *arg)
 
 	tok = strtok(arg_cp, delim);
 	while (tok)
-	{ 
+	{
 		str_count++;
 		tok = strtok(NULL, delim);
 	}

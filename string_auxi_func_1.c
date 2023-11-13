@@ -89,3 +89,52 @@ char *_strdup(char *str)
 
 	return (s);
 }
+
+/**
+ * *_strchr - function that locates the first occurence of c
+ * @s: string to search
+ * @c: character to search
+ * Return: *s
+ */
+
+char *_strchr(char *s, char c)
+{
+	unsigned int i = 0;
+
+	for (; *(s + i) != '\0'; i++)
+		if (*(s + i) == c)
+			return (s + i);
+	if (*(s + i) == c)
+		return (s + i);
+	return ('\0');
+}
+
+/**
+ * rev_string - reverses string
+ *
+ * @s: string
+ */
+
+void rev_string(char *s)
+{
+	int count = 0, i, j;
+	char *str, temp;
+
+	while (count >= 0)
+	{
+		if (s[count] == '\0')
+			break;
+		count++;
+	}
+	str = s;
+
+	for (i = 0; i < (count - 1); i++)
+	{
+		for (j = i + 1; j > 0; j--)
+		{
+			temp = *(str + j);
+			*(str + j) = *(str + (j - 1));
+			*(str + (j - 1)) = temp;
+		}
+	}
+}

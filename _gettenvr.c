@@ -17,8 +17,8 @@ char *_getenvr(char *var_name, char **env)
 
 	for (indx = 0; env[indx] != NULL; indx++)
 	{
-		if (_strncmp(env[indx], var_name, len) == 0)
-			return(env[indx] + (len + 1));
+		if (strncmp(env[indx], var_name, len) == 0)
+			return (env[indx] + (len + 1));
 	}
 	return (NULL);
 }
