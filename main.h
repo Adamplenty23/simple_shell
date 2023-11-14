@@ -50,5 +50,5 @@ char *_pathget(char *cmd_name, char *paths);
 /*Execution Functions*/
 void _freearray(char **array);
 int _do_execute(char **cmd, char **argv);
-
+char *_gettline(void);
 #endif
