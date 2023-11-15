@@ -15,16 +15,8 @@ int main(int ac, char **av)
 
 	while (1)
 	{
-<<<<<<< HEAD
-		if (isatty(STDIN_FILENO) == 1)
-			dis_prompt_user();
-
-		r_userline = getline(&buf, &size, stdin);
-		if (r_userline == -1)
-=======
 		buf = _command_line();
 		if (buf == NULL) /*handling EOF*/
->>>>>>> 3f167794b328679d49f206c444fd91b7c5ec7105
 		{
 			if (isatty(STDIN_FILENO))
 				_putchar('\n');
@@ -36,7 +28,10 @@ int main(int ac, char **av)
 		if (!token_read)
 			continue;
 
-		status = _do_execute(token_read, av, idx);
+		if (is_builtin(token_read[0]))
+			do_builtin(token_read, av, &status, idx);
+		else
+			status = _do_execute(token_read, av, idx);
 
 	}
 

@@ -24,10 +24,17 @@ int _do_execute(char **cmd, char **argv, int idx)
 	}
 
 	new_child_proc = fork();
+	if (new_child_proc == -1)
+	{
+		perror("fork");
+		free(full_path);
+		_freearray(cmd);
+	}
 	if (new_child_proc == 0)
 	{
 		if (execve(full_path, cmd, environ) == -1)
 		{
+			perror("execve");
 			free(full_path), full_path = NULL;
 			_freearray(cmd);
 		}
@@ -36,8 +43,8 @@ int _do_execute(char **cmd, char **argv, int idx)
 	{
 		waitpid(new_child_proc, &status, 0);
 		_freearray(cmd);
-		free(full_path), full_path = NULL;
 	}
+	free(full_path), full_path = NULL;
 
 	return (WEXITSTATUS(status));
 }
