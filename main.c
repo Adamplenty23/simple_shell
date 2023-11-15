@@ -21,7 +21,7 @@ int main(int ac, char **av, char **env)
 		if (isatty(STDIN_FILENO) == 1)
 			dis_prompt_user();
 
-		r_userline = _gettline(&buf, &size, stdin);
+		r_userline = getline(&buf, &size, stdin);
 		if (r_userline == -1)
 		{
 			free(buf), buf = NULL;
