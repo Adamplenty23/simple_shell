@@ -20,6 +20,9 @@
 
 extern char **environ;
 
+/*ReadLine Function*/
+char *_command_line(void);
+
 /*Print Functions*/
 int _putchar(char a);
 void _printS(char *s);
@@ -49,6 +52,7 @@ char *_pathget(char *cmd_name, char *paths);
 
 /*Execution Functions*/
 void _freearray(char **array);
-int _do_execute(char **cmd, char **argv);
-char *_gettline(void);
+int _do_execute(char **cmd, char **argv, int idx);
+ssize_t _gettline(char **linept, size_t *i, FILE *stream);
+
 #endif

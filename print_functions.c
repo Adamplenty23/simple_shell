@@ -40,7 +40,7 @@ void dis_prompt_user(void)
 void printerror(char *name, char *comd, int idx)
 {
 	char *index;
-	char *mssg = ": command not found\n";
+	char mesg[] = ": not found\n";
 
 	index = _itoa(idx);
 
@@ -49,5 +49,7 @@ void printerror(char *name, char *comd, int idx)
 	write(STDERR_FILENO, index, _strlen(index));
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, comd, _strlen(comd));
-	write(STDERR_FILENO, mssg, _strlen(mssg));
+	write(STDERR_FILENO, mesg, _strlen(mesg));
+
+	free(index);
 }
