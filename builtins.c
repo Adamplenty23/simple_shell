@@ -90,4 +90,6 @@ void print_environ(char **comd, int *status)
 		_printS(environ[i]);
 		_putchar('\n');
 	}
+	_freearray(comd);
+	(*status) = 0;
 }
