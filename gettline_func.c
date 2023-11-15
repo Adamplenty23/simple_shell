@@ -18,7 +18,7 @@ ssize_t _gettline(char **linept, size_t *i, FILE *stream)
 	if (line_get == NULL || total == 0)
 	{
 		total = 128;
-		line = (char *)malloc(sizeof(char) * total);
+		line_get = (char *)malloc(sizeof(char) * total);
 		if (line == NULL)
 			return (-1);
 	}
