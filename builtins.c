@@ -76,7 +76,7 @@ void exit_shell(char **comd, char **argv, int *status, int idx)
 }
 
 /**
- * print_envron - prints the environment variables to stdout
+ * print_environ - prints the environment variables to stdout
  * @comd: the comand (env)
  * @status: status of process
  */
