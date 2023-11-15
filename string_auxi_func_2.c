@@ -71,3 +71,24 @@ int _strncmp(const char *str1, const char *str2, size_t i)
 	}
 	return (0);
 }
+
+/**
+ * is_positive - checks if a number is positive
+ * @str: string to check
+ * Return: 1 on success and 0 otherwise
+ */
+
+int is_positive(char *str)
+{
+	int i;
+
+	if (str == NULL)
+		return (0);
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+	}
+	return (1);
+}

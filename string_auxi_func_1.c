@@ -67,7 +67,7 @@ int _atoi(char *s)
 
 char *_strdup(char *str)
 {
-	int i, len;
+	int i, len = 0;
 	char *s;
 
 	if (str == NULL)

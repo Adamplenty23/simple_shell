@@ -28,7 +28,10 @@ int main(int ac, char **av)
 		if (!token_read)
 			continue;
 
-		status = _do_execute(token_read, av, idx);
+		if (is_builtin(token_read[0]))
+			do_builtin(token_read, av, &status, idx);
+		else
+			status = _do_execute(token_read, av, idx);
 
 	}
 

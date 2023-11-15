@@ -16,7 +16,7 @@ char **_token_gen(char *arg)
 		return (NULL);
 
 	tok = _strtok(arg_cp, delim);
-	while (tok)
+	while (tok != NULL)
 	{
 		str_count++;
 		tok = _strtok(NULL, delim);
@@ -31,7 +31,7 @@ char **_token_gen(char *arg)
 	tok = _strtok(arg, delim);
 	for (i = 0; tok != NULL; i++)
 	{
-		token[i] = tok;
+		token[i] = _strdup(tok);
 		tok = _strtok(NULL, delim);
 	}
 	token[i] = NULL;
