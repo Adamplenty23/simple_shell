@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * main - Entry function for our shell
  * @ac: argument count
@@ -10,8 +9,10 @@ int main(int ac, char **av)
 {
 	char *buf = NULL;
 	char **token_read = NULL;
-	int status = 0, idx = 0;
+	int status = -1, idx = 0;
 	(void)ac;
+
+	signal(SIGINT, _sigint_handler);
 
 	while (1)
 	{
@@ -28,7 +29,6 @@ int main(int ac, char **av)
 		if (!token_read)
 		{
 			free(buf);
-			continue;
 		}
 
 		if (is_builtin(token_read[0]))

@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <fcntl.h>
+#include <signal.h>
 
 #define BUF_SIZE 1024
 #define PROMPT "$ "
@@ -64,5 +65,9 @@ void exit_shell(char **comd, char **argv, int *status, int idx);
 void print_environ(char **comd, int *status);
 void cd_shell(char **comd, int *status);
 int _setenv(char *name, char *value, int overwrite);
+
+/*specifying the exitting condition*/
+void _sigint_handler(int signum);
+
 
 #endif

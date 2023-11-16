@@ -1,5 +1,13 @@
 #include "main.h"
-
+/**
+ * _sigint_handler - creating a condition for ^c
+ * @signum: the condition
+ * Return: no return value
+ */
+void _sigint_handler(int signum)                                                                                {                                                                                                                     /*creating a custom signum for cntr c*/
+	_putchar('\n');
+	(void)signum;
+}
 /**
  * _command_line - function to read command line
  * Return: Line read on success
