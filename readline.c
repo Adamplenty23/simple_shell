@@ -4,8 +4,11 @@
  * @signum: the condition
  * Return: no return value
  */
-void _sigint_handler(int signum)                                                                                {                                                                                                                     /*creating a custom signum for cntr c*/
+void _sigint_handler(int signum)
+{
+	/*creating a custom signum for cntr c*/
 	_putchar('\n');
+	dis_prompt_user();
 	(void)signum;
 }
 /**
