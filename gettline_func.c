@@ -47,4 +47,3 @@ ssize_t _gettline(char **linept, size_t *i, FILE *stream)
 
 	return ((char_read == 0 && b == EOF) ? rt : char_read);
 }
-

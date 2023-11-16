@@ -8,7 +8,8 @@ void _sigint_handler(int signum)
 {
 	/*creating a custom signum for cntr c*/
 	_putchar('\n');
-	dis_prompt_user();
+	_putchar('$');
+	_putchar(' ');
 	(void)signum;
 }
 /**

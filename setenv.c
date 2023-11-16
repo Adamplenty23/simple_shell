@@ -4,7 +4,7 @@
  * _setenv - sets an environment pair
  * @name: name of the variable
  * @value: value of the variable
- * @overwrite: inter value to determine what the 
+ * @overwrite: inter value to determine what the
  * function does
  * Return: 0 on success -1 otherwise
  */

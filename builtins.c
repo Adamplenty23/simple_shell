@@ -33,8 +33,8 @@ void do_builtin(char **comd, char **argv,  int *status, int idx)
 		exit_shell(comd, argv, status, idx);
 	if (_strcmp(comd[0], "env") == 0)
 		print_environ(comd, status);
-	if (_strcmp(comd[0], "cd") == 0)
-		cd_shell(comd, status);
+/*	if (_strcmp(comd[0], "cd") == 0)*/
+/*		cd_shell(comd, status);*/
 	if (_strcmp(comd[0], "setenv") == 0)
 		_setenv(comd[1], comd[2], *status);
 }
@@ -70,12 +70,11 @@ void exit_shell(char **comd, char **argv, int *status, int idx)
 			write(STDERR_FILENO, "\n", 1);
 
 			free(indx);
-			_freearray(comd);
 			(*status) = 2;
 			return;
 		}
 	}
-	_freearray(comd);
+/*	_freearray(comd);*/
 	free(indx);
 	exit(value);
 }
@@ -89,13 +88,13 @@ void exit_shell(char **comd, char **argv, int *status, int idx)
 void print_environ(char **comd, int *status)
 {
 	int i;
+	(void) comd;
 
 	for (i = 0; environ[i]; i++)
 	{
 		_printS(environ[i]);
 		_putchar('\n');
 	}
-	_freearray(comd);
 	(*status) = 0;
 }
 
@@ -104,24 +103,25 @@ void print_environ(char **comd, int *status)
  * @comd: command line argument
  * @status: status of process
  */
-
-void cd_shell(char **comd, int *status)
-{
-/*	if (_strcmp(comd[1], "..") == 0)
-		chdir(_getenvr("OLD_PWD", environ));
-	else if (_strcmp(comd[1], ".") == 0)
-		chdir(_getenvr("PWD", environ));
-	else if (_strcmp(comd[1], "-") == 0)
-		chdir(_getenvr("OLD_PWD", environ));
-	else if (_strcmp(comd[1], "__") == 0)
-		chdir(_getenvr("HOME", environ));
-	else if (_strcmp(comd[1], "~") == 0)
-		chdir(_getenvr("HOME", environ));*/
-	if (_strcmp(comd[1], NULL) == 0)
-		chdir(_getenvr("HOME", environ));
-	else
-		chdir(comd[1]);
-
-	_freearray(comd);
-	(*status) = 0;
-}
+/**
+ * void cd_shell(char **comd, int *status)
+ * {
+ * if (_strcmp(comd[1], "..") == 0)
+ *	chdir(_getenvr("OLD_PWD", environ));
+ *	else if (_strcmp(comd[1], ".") == 0)
+ *		chdir(_getenvr("PWD", environ));
+ *	else if (_strcmp(comd[1], "-") == 0)
+ *		chdir(_getenvr("OLD_PWD", environ));
+ *	else if (_strcmp(comd[1], "__") == 0)
+ *		chdir(_getenvr("HOME", environ));
+ *	else if (_strcmp(comd[1], "~") == 0)
+ *		chdir(_getenvr("HOME", environ));
+ *			if (_strcmp(comd[1], NULL) == 0)
+ *		chdir(_getenvr("HOME", environ));
+ *	else
+ *		chdir(comd[1]);
+ *
+ *	_freearray(comd);
+ *	(*status) = 0;
+ *	}
+ */

@@ -35,8 +35,9 @@ int main(int ac, char **av)
 			do_builtin(token_read, av, &status, idx);
 		else
 			status = _do_execute(token_read, av, idx);
+
+		free(buf);
 	}
-	free(buf);
 
 	return (0);
 }
