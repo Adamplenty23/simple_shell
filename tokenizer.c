@@ -9,7 +9,7 @@
 char **_token_gen(char *arg)
 {
 	char **token, *arg_cp, *delim = " \t\n", *tok;
-	int str_count = 0, i;
+	int str_count = 0, i, j;
 
 	arg_cp = _strdup(arg);
 	if (arg_cp == NULL)
@@ -32,6 +32,13 @@ char **_token_gen(char *arg)
 	for (i = 0; tok != NULL; i++)
 	{
 		token[i] = _strdup(tok);
+		if (token[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(token[j]);
+			free(token);
+			free(arg_cp);
+		}
 		tok = _strtok(NULL, delim);
 	}
 	token[i] = NULL;

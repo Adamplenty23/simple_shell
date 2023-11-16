@@ -26,14 +26,17 @@ int main(int ac, char **av)
 
 		token_read = _token_gen(buf);
 		if (!token_read)
+		{
+			free(buf);
 			continue;
+		}
 
 		if (is_builtin(token_read[0]))
 			do_builtin(token_read, av, &status, idx);
 		else
 			status = _do_execute(token_read, av, idx);
-
 	}
+	free(buf);
 
 	return (0);
 }

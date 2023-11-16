@@ -21,7 +21,7 @@ char *_pathget(char *cmd_name, char *paths)
 	tok = _strtok(cp_path, ":");
 	while (tok)
 	{
-		tok_len = strlen(tok);
+		tok_len = _strlen(tok);
 		main_path = malloc(sizeof(char) * (tok_len + cmd_len + 2));
 		if (!main_path)
 		{

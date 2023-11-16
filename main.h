@@ -62,5 +62,7 @@ int is_builtin(char *comd);
 void do_builtin(char **comd, char **argv,  int *status, int idx);
 void exit_shell(char **comd, char **argv, int *status, int idx);
 void print_environ(char **comd, int *status);
+void cd_shell(char **comd, int *status);
+int _setenv(char *name, char *value, int overwrite);
 
 #endif
