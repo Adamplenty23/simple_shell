@@ -43,5 +43,6 @@ char **_token_gen(char *arg)
 	}
 	token[i] = NULL;
 	free(arg_cp);
+	free(token);
 	return (token);
 }

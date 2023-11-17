@@ -29,7 +29,6 @@ int main(int ac, char **av)
 		if (!token_read)
 		{
 			free(buf);
-			free(token_read);
 			return (-1);
 		}
 
@@ -39,6 +38,7 @@ int main(int ac, char **av)
 			status = _do_execute(token_read, av, idx);
 
 		free(buf);
+		free(token_read);
 	}
 
 	return (0);
