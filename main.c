@@ -29,6 +29,8 @@ int main(int ac, char **av)
 		if (!token_read)
 		{
 			free(buf);
+			free(token_read);
+			return (-1);
 		}
 
 		if (is_builtin(token_read[0]))

@@ -25,7 +25,7 @@ char **_token_gen(char *arg)
 	token = malloc(sizeof(char *) * str_count);
 	if (token == NULL)
 	{
-		free(arg_cp);
+		free(token);
 		return (NULL);
 	}
 	tok = _strtok(arg, delim);
