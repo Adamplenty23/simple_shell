@@ -8,7 +8,8 @@
  */
 ssize_t _gettline(char **linept, size_t *i, FILE *stream)
 {
-	size_t char_read = 0, rt = -1;
+	size_t char_read = 0;
+	size_t rt = -1;
 	size_t total = *i, old_size;
 	char *line_get = *linept;
 	char *new_line;
@@ -46,7 +47,4 @@ ssize_t _gettline(char **linept, size_t *i, FILE *stream)
 	*i = total;
 
 	return ((char_read == 0 && b == EOF) ? rt : char_read);
-	free(line_get);
-	free(new_line);
-	free(linept);
 }

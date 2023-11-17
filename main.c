@@ -9,7 +9,7 @@ int main(int ac, char **av)
 {
 	char *buf = NULL;
 	char **token_read = NULL;
-	int status = -1, idx = 0;
+	int status = 0, idx = 0;
 	(void)ac;
 
 	signal(SIGINT, _sigint_handler);
@@ -38,7 +38,6 @@ int main(int ac, char **av)
 			status = _do_execute(token_read, av, idx);
 
 		free(buf);
-		free(token_read);
 	}
 
 	return (0);
