@@ -97,31 +97,3 @@ void print_environ(char **comd, int *status)
 	}
 	(*status) = 0;
 }
-
-/**
- * cd_shell - changes directory
- * @comd: command line argument
- * @status: status of process
- */
-/**
- * void cd_shell(char **comd, int *status)
- * {
- * if (_strcmp(comd[1], "..") == 0)
- *	chdir(_getenvr("OLD_PWD", environ));
- *	else if (_strcmp(comd[1], ".") == 0)
- *		chdir(_getenvr("PWD", environ));
- *	else if (_strcmp(comd[1], "-") == 0)
- *		chdir(_getenvr("OLD_PWD", environ));
- *	else if (_strcmp(comd[1], "__") == 0)
- *		chdir(_getenvr("HOME", environ));
- *	else if (_strcmp(comd[1], "~") == 0)
- *		chdir(_getenvr("HOME", environ));
- *			if (_strcmp(comd[1], NULL) == 0)
- *		chdir(_getenvr("HOME", environ));
- *	else
- *		chdir(comd[1]);
- *
- *	_freearray(comd);
- *	(*status) = 0;
- *	}
- */
